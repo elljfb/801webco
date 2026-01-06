@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>801 Web Co - Web Development Portfolio</title>
+    <title>801 Web Co - Web Development & SEO</title>
     <style>
         * {
             margin: 0;
@@ -43,8 +43,76 @@
             font-weight: 300;
         }
 
+        .intro {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .intro .email-link {
+            color: #1e3c72;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #1e3c72;
+            transition: opacity 0.3s ease;
+        }
+
+        .intro .email-link:hover {
+            opacity: 0.7;
+        }
+
         .projects {
             padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .project-section {
+            margin-bottom: 80px;
+        }
+
+        .project-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .about {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
         }
 
         .section-title {
@@ -175,33 +243,51 @@
         </div>
     </header>
 
+    <section class="intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Welcome to 801 Web Co</h2>
+                <p>We develop modern, responsive websites with a strong focus on search engine optimisation (SEO) to help your online presence grow and reach the right audience.</p>
+                <p>Need help with your website or have a project in mind? Get in touch: <a href="mailto:hello@801web.co" class="email-link">hello@801web.co</a></p>
+            </div>
+        </div>
+    </section>
+
     <section class="projects">
         <div class="container">
-            <h2 class="section-title">Our Projects</h2>
-            <div class="project-grid" id="projectGrid">
-                <!-- Projects will be inserted here by JavaScript -->
+            <div class="project-section">
+                <h2 class="section-title">Community Websites</h2>
+                <div class="project-grid" id="communityGrid">
+                    <!-- Community projects will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2 class="section-title">Personal Projects</h2>
+                <div class="project-grid" id="personalGrid">
+                    <!-- Personal projects will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Based in Retford, Nottinghamshire, we've been creating websites since 2015. Our passion is building digital experiences that make a difference for businesses and communities alike.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 801 Web Co. All rights reserved.</p>
+            <p>&copy; 2026 801 Web Co. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        const projects = [
-            {
-                name: "Footle Club",
-                url: "https://footle.club",
-                description: "A daily Wordle-style footballer guessing game that challenges players to identify football players through clever clues. An engaging daily puzzle for football fans worldwide."
-            },
-            {
-                name: "Since Last Won A Trophy",
-                url: "https://sincelastwonatrophy.com",
-                description: "A comprehensive database tracking when football teams last won trophies. Perfect for settling debates and exploring football history with up-to-date statistics."
-            },
+        const communityProjects = [
             {
                 name: "Retford Info",
                 url: "https://retford.info",
@@ -211,6 +297,19 @@
                 name: "Worksop Info",
                 url: "https://worksop.info",
                 description: "A local information and community website serving the town of Worksop, Nottinghamshire. Your go-to source for everything happening in Worksop."
+            },
+            {
+                name: "Ingoldmells Info",
+                url: "https://ingoldmells.info",
+                description: "A community website providing news, events, and resources for the Lincolnshire coastal village of Ingoldmells. Keeping locals and tourists informed and connected."
+            }
+        ];
+
+        const personalProjects = [
+            {
+                name: "Footle Club",
+                url: "https://footle.club",
+                description: "A daily Wordle-style footballer guessing game that challenges players to identify football players through clever clues. An engaging daily puzzle for football fans worldwide."
             },
             {
                 name: "Transfer Rumour Generator",
@@ -235,8 +334,11 @@
         }
 
         function loadProjects() {
-            const grid = document.getElementById('projectGrid');
-            grid.innerHTML = projects.map((project, index) => createProjectCard(project, index)).join('');
+            const communityGrid = document.getElementById('communityGrid');
+            const personalGrid = document.getElementById('personalGrid');
+            
+            communityGrid.innerHTML = communityProjects.map((project, index) => createProjectCard(project, index)).join('');
+            personalGrid.innerHTML = personalProjects.map((project, index) => createProjectCard(project, index)).join('');
         }
 
         document.addEventListener('DOMContentLoaded', loadProjects);
